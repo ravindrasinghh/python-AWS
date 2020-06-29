@@ -21,7 +21,7 @@ print(list_of_Regions)
 for each_reg in list_of_Regions:
     session=boto3.Session(profile_name="default",region_name = each_reg)
     resource=session.resource(service_name ='ec2')
-    print("InsttanceID",each_reg)
+    print("InstanceID",each_reg)
     for each_in in resource.instances.all():
         print(each_in.id,each_in.state['Name'])
 
