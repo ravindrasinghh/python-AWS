@@ -3,9 +3,6 @@ import pprint
 
 #Creating session  to connect with AWS Account
 session=boto3.Session(profile_name="default",region_name = "us-east-1")
-
-
-
 #List out all the regions
 client=session.client(service_name = 'ec2')
 all_regions=client.describe_regions()
@@ -24,4 +21,3 @@ for each_reg in list_of_Regions:
     print("InstanceID",each_reg)
     for each_in in resource.instances.all():
         print(each_in.id,each_in.state['Name'])
-
